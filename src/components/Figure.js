@@ -2,7 +2,7 @@ import React from "react";
 
 function Figure({ wrongLetters }) {
   const errors = wrongLetters.length;
-  console.log(wrongLetters.length);
+
   return (
     <svg width="250" height="200" xmlns="http://www.w3.org/2000/svg">
       {/* rod */}

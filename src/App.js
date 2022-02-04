@@ -6,10 +6,11 @@ import WrongLetters from "./components/WrongLetters";
 import Word from "./components/Word";
 import Notification from "./components/Notification";
 import Popup from "./components/Popup";
+import Axios from "axios";
 
 //pobrać z api
 const words = ["bicycle", "car", "onion", "laptop"];
-let selectedWord = words[Math.floor(Math.random() * words.length)];
+// let selectedWord = words[Math.floor(Math.random() * words.length)];
 
 function showNotificationSetter(setter) {
   setter(true);
@@ -18,11 +19,21 @@ function showNotificationSetter(setter) {
   }, 3000);
 }
 
+function getWord() {
+  Axios.get("https://random-word-api.herokuapp.com/word?number=1").then(
+    (response) => {
+      console.log(response.data[0]);
+      return response.data[0];
+    }
+  );
+}
+
 function App() {
   const [playable, setPlayable] = useState(true);
   const [correctLetters, setCorrectLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
+  const [selectedWord, setSelectedWord] = useState();
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -62,14 +73,18 @@ function App() {
     const random = Math.floor(Math.random() * words.length);
     selectedWord = words[random];
   }
-
+  //stan flagi
   return (
     <>
       <div>
         <Header />
         <Figure wrongLetters={wrongLetters} />
         <WrongLetters wrongLetters={wrongLetters} />
-        <Word selectedWord={selectedWord} correctLetters={correctLetters} />
+        <Word
+          isWordGetFromApi={false}
+          selectedWord={selectedWord}
+          correctLetters={correctLetters}
+        />
       </div>
       <Popup
         correctLetters={correctLetters}
