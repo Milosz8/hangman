@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+#root {
+  background-color: #33630c;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow: hidden;
+}

@@ -2,19 +2,24 @@ import React from "react";
 import styled from "styled-components";
 
 const WordWrapper = styled.div`
-  background-color: pink;
-  padding: 2rem;
-  margin: 2rem;
-  height: 100px;
-  width: 500px;
+  display: flex;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 const LetterWrapper = styled.span`
-  background-color: rosybrown;
-
-  margin: 2rem;
-
-  border-bottom: 4px solid brown;
+  border-bottom: 3px solid yellow;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: flex;
+  font-size: 30px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3px;
+  height: 60px;
+  width: 30px;
 `;
 
 function Word({ selectedWord, correctLetters }) {
