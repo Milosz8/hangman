@@ -4,10 +4,12 @@ import styled from "styled-components";
 const FigureWrapper = styled.div`
   svg {
     fill: transparent;
-    stroke: #fff;
-    stroke-width: 10px;
+    stroke: rgba(255, 255, 255, 0.8);
+    stroke-width: 11px;
     stroke-linecap: round;
-    padding-top: 6rem;
+    padding-top: 3.5rem;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.9);
+    filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.9));
   }
 `;
 
@@ -23,12 +25,10 @@ function Figure({ wrongLetters }) {
           x2="155.8889"
           y1="286.11109"
           x1="34.8889"
-          stroke="#000"
           fill="none"
         />
         {/* rod */}
         <line
-          stroke="#000"
           id="svg_3"
           y2="286.11109"
           x2="94.8889"
@@ -42,7 +42,6 @@ function Figure({ wrongLetters }) {
           x2="227.8889"
           y1="5.11109"
           x1="93.8889"
-          stroke="#000"
           fill="none"
         />
         <line
@@ -51,7 +50,6 @@ function Figure({ wrongLetters }) {
           x2="213.88731"
           y1="5.59253"
           x1="214.23213"
-          stroke="#000"
           fill="none"
         />
         {/* head */}
@@ -62,7 +60,6 @@ function Figure({ wrongLetters }) {
             id="svg_7"
             cy="63.17845"
             cx="214.23213"
-            stroke="#000"
             fill="none"
           />
         )}
@@ -75,7 +72,6 @@ function Figure({ wrongLetters }) {
             x2="214.23213"
             y1="81.45421"
             x1="214.23213"
-            stroke="#000"
             fill="none"
           />
         )}
@@ -87,7 +83,6 @@ function Figure({ wrongLetters }) {
             x2="213.54248"
             y1="88.0059"
             x1="214.23213"
-            stroke="#000"
             fill="none"
           />
         )}
@@ -99,7 +94,6 @@ function Figure({ wrongLetters }) {
             x2="247.33541"
             y1="89.73003"
             x1="214.57696"
-            stroke="#000"
             fill="none"
           />
         )}
@@ -111,7 +105,6 @@ function Figure({ wrongLetters }) {
             x2="213.88731"
             y1="135.24704"
             x1="183.19781"
-            stroke="#000"
             fill="none"
           />
         )}
@@ -123,7 +116,6 @@ function Figure({ wrongLetters }) {
             id="svg_13"
             cy="136.45393"
             cx="247.23756"
-            stroke="#000"
             fill="none"
           />
         )}
@@ -135,7 +127,6 @@ function Figure({ wrongLetters }) {
             id="svg_14"
             cy="135.96"
             cx="182.95084"
-            stroke="#000"
             fill="none"
           />
         )}
@@ -147,7 +138,6 @@ function Figure({ wrongLetters }) {
             x2="240.04747"
             y1="150.79216"
             x1="213.49588"
-            stroke="#000"
             fill="none"
           />
         )}
@@ -159,7 +149,6 @@ function Figure({ wrongLetters }) {
             x2="185.80731"
             y1="151.55636"
             x1="213.39337"
-            stroke="#000"
             fill="none"
           />
         )}
@@ -171,7 +160,6 @@ function Figure({ wrongLetters }) {
             width="16.20681"
             y="225.30248"
             x="235.89091"
-            stroke="#000"
             fill="none"
           />
         )}
@@ -183,7 +171,6 @@ function Figure({ wrongLetters }) {
             width="17.58612"
             y="224.95766"
             x="172.9742"
-            stroke="#000"
             fill="none"
           />
         )}

@@ -20,6 +20,13 @@ const LetterWrapper = styled.span`
   margin: 0 3px;
   height: 60px;
   width: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+
+  @media only screen and (max-width: 450px) {
+    font-size: 20px;
+    width: 20px;
+    height: 50px;
+  }
 `;
 
 function Word({ selectedWord, correctLetters }) {
