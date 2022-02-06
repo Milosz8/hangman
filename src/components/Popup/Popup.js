@@ -15,6 +15,7 @@ const PopupWrapper = styled.div`
     align-items: center;
     justify-content: center;
     display: flex;
+    padding: 15px;
     h1 {
       justify-content: center;
       display: flex;
@@ -51,17 +52,11 @@ const PopupWrapper = styled.div`
 
 function chceckWin(correct, wrong, word) {
   let status = "win";
-
-  //check for win
-
   word.split("").forEach((letter) => {
     if (!correct.includes(letter)) {
       status = "";
     }
   });
-
-  //check for lose
-
   if (wrong.length === 11) status = "lose";
   return status;
 }
@@ -89,7 +84,7 @@ function Popup({
 
   return (
     <PopupWrapper>
-      <div className={`popup-container ${finalMessage !== "" ? `show` : ""}`}>
+      <div className={`popup-container ${finalMessage && "show"}`}>
         <div>
           <h1>{finalMessage}</h1>
           <h2>{finalMessageRevealWord}</h2>

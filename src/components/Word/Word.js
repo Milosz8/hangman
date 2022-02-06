@@ -7,6 +7,10 @@ const WordWrapper = styled.div`
   bottom: 100px;
   left: 50%;
   transform: translateX(-50%);
+
+  @media only screen and (max-width: 550px) {
+    bottom: 70px;
+  }
 `;
 
 const LetterWrapper = styled.span`
@@ -22,7 +26,7 @@ const LetterWrapper = styled.span`
   width: 30px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
 
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 550px) {
     font-size: 20px;
     width: 20px;
     height: 50px;

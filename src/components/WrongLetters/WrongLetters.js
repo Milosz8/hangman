@@ -19,9 +19,22 @@ const WrongLettersWrapper = styled.div`
     margin: 0 0 5px;
     text-align: left;
   }
-  @media only screen and (max-width: 450px) {
+
+  @media only screen and (max-width: 550px) {
+    width: 100%;
+    padding: 0 15px;
+    text-align: center;
+    top: unset;
+    bottom: 15%;
+    right: 0;
+    left: 0;
+
+    p {
+      text-align: center;
+    }
+
     span {
-      font-size: 20px;
+      font-size: 16px;
     }
   }
 `;

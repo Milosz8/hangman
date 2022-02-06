@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Header from "./components/Header";
-import Figure from "./components/Figure";
-import WrongLetters from "./components/WrongLetters";
-import Word from "./components/Word";
-import Notification from "./components/Notification";
-import Popup from "./components/Popup";
+import Header from "./components/Header/Header";
+import Figure from "./components/Figure/Figure";
+import WrongLetters from "./components/WrongLetters/WrongLetters";
+import Word from "./components/Word/Word";
+import Notification from "./components/Notification/Notification";
+import Popup from "./components/Popup/Popup";
 import styled from "styled-components";
 
 const GameWrapper = styled.div`
@@ -52,7 +52,6 @@ function App() {
   useEffect(() => {
     fetch("https://random-word-api.herokuapp.com/word?number=100")
       .then((response) => {
-        console.log(response);
         return response.json();
       })
       .then((data) => {
@@ -63,17 +62,13 @@ function App() {
       });
   }, []);
 
-  console.log(word);
-  console.log(selectedWord);
   function getTheWordAgain() {
     setSelectedWord(word[Math.floor(Math.random() * word.length)]);
-
     setCorrectLetters([]);
     setWrongLetters([]);
   }
 
   useEffect(() => {
-    console.log(wrongLetters);
     const handleKeyDown = (event) => {
       const { key, keyCode } = event;
 
@@ -83,7 +78,6 @@ function App() {
         if (selectedWord && selectedWord.includes(letter)) {
           if (!correctLetters.includes(letter)) {
             setCorrectLetters((currentLetters) => [...currentLetters, letter]);
-            //spread all letters add new letter to currentLetters new array
           } else {
             showNotificationSetter(setShowNotification);
           }
@@ -97,10 +91,8 @@ function App() {
       }
     };
     window.addEventListener(`keydown`, handleKeyDown);
-    //cleanup  -- - -run on only one event listener running
     return () => window.removeEventListener(`keydown`, handleKeyDown);
   }, [correctLetters, wrongLetters, playable, selectedWord]);
-  //initial render
 
   function playAgain() {
     setPlayable(true);
@@ -109,21 +101,17 @@ function App() {
 
   return (
     <GameWrapper>
-      {word && (
-        <div>
-          {word && (
-            <button id="btn" onClick={getTheWordAgain}>
-              Start
-            </button>
-          )}
-          <Header />
-          {selectedWord && <Figure wrongLetters={wrongLetters} />}
-          {selectedWord && <WrongLetters wrongLetters={wrongLetters} />}
-          {selectedWord && (
-            <Word selectedWord={selectedWord} correctLetters={correctLetters} />
-          )}
-        </div>
-      )}
+      <div>
+        <button id="btn" onClick={getTheWordAgain}>
+          {selectedWord ? "Reset" : "Start"}
+        </button>
+        <Header />
+        {selectedWord && <Figure wrongLetters={wrongLetters} />}
+        {selectedWord && <WrongLetters wrongLetters={wrongLetters} />}
+        {selectedWord && (
+          <Word selectedWord={selectedWord} correctLetters={correctLetters} />
+        )}
+      </div>
       {selectedWord && (
         <Popup
           correctLetters={correctLetters}
